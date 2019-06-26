@@ -1,16 +1,18 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { Switch, Route,Redirect } from 'react-router-dom'
 import NavBar from './components/Navbar';
 import "./App.css";
 
+import PaginaInicial from "./components/paginaInicial/index"
 function App() {
   return (
     <div className="App">
+      <NavBar /> 
       <Switch>
-        <NavBar /> 
-        {/* <Route exact path="/" component={Visualizacao} />
-        <Route path="/cadastro" component={Cadastro} />
-        <Redirect from="*" to="/" /> */}
+        <Route path="/" exact component={App} />
+        <Route path="/loja" component={PaginaInicial} />
+        <Redirect from="*" to="/" />
+        {/* <Route path="/cadastro" component={Cadastro} /> */}
       </Switch>
     </div>
   );
