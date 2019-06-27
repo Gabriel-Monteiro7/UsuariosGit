@@ -1,6 +1,6 @@
 import React, { Component } from "react";
+import { Card } from "react-bootstrap";
 
-import { Card} from "react-bootstrap";
 class Produto extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +26,7 @@ class Produto extends Component {
             }}
           >
             <div className="col-6">
-              <Card style={{ height: "100%"}}>
+              <Card style={{ height: "100%" }}>
                 <Card.Img variant="top" src={produto.imagem} />
               </Card>
             </div>
@@ -49,7 +49,8 @@ class Produto extends Component {
                       <i>{"Altura:  "}</i> {produto.dimensoes.altura} m
                     </li>
                     <li className="list-group-item">
-                      <i>{"Comprimento:  "}</i> {produto.dimensoes.comprimento} m
+                      <i>{"Comprimento:  "}</i> {produto.dimensoes.comprimento}{" "}
+                      m
                     </li>
                     <li className="list-group-item">
                       <i>{"Largura:  "}</i> {produto.dimensoes.largura} m
@@ -59,9 +60,11 @@ class Produto extends Component {
               </Card>
             </div>
           </div>
-        
-        ) : <div style={{margin:"20% 0 0 0 "}}><h5>Nenhum produto selecionado</h5></div>}
-
+        ) : (
+          <div style={{ margin: "20% 0 0 0 " }}>
+            <h5>Nenhum produto selecionado</h5>
+          </div>
+        )}
       </div>
     );
   }

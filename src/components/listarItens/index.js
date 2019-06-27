@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+
 class ListarItens extends Component {
   constructor(props) {
     super(props);
@@ -24,11 +24,15 @@ class ListarItens extends Component {
                 className="row"
                 onClick={() => this.props.mudarIndice(item)}
                 key={key}
-                style={{padding: "10px 0 ",width:"100%" }}
+                style={{ padding: "10px 0 ", width: "100%" }}
               >
-                <div className="col-2"><b>{item.produto.nome}</b></div>
+                <div className="col-2">
+                  <b>{item.produto.nome}</b>
+                </div>
                 <div className="col-7">{item.produto.descricao}</div>
-                <div className="col-1"><b>{item.dataCompra}</b></div>
+                <div className="col-1">
+                  <b>{item.dataCompra}</b>
+                </div>
               </div>
             </Link>
           ))}

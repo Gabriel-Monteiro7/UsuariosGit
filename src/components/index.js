@@ -1,32 +1,30 @@
 import React, { Component } from "react";
-
-import { Switch, Route, Redirect } from "react-router-dom";
-import NavBar from "./navbar";
-import Footer from "./footer";
+import { Redirect, Route, Switch } from "react-router-dom";
 import "../App.css";
-
-import PaginaInicial from "./paginaInicial/index";
+import Footer from "./footer";
 import Compras from "./listarItens/index";
+import NavBar from "./navbar";
+import PaginaInicial from "./paginaInicial/index";
 import Produto from "./produto/index";
+import { selectCompras, selectProduto, selectTodosProdutos } from "./request";
 
-import { selectTodosProdutos, selectProduto, selectCompras } from "./request";
+
+
 
 const initValue = {
   produtosComprados: [],
   todosProdutos: [{}],
   minhaLista: [],
-  produtoSelecionado:[]
+  produtoSelecionado: []
 };
 class User extends Component {
   state = { ...initValue };
   componentWillMount() {
     selectTodosProdutos().then(response => {
       this.setState({ todosProdutos: response.data });
-
     });
     selectCompras().then(response => {
-      this.setState({ minhaLista: response.data});
-
+      this.setState({ minhaLista: response.data });
     });
   }
   comprar(item) {
@@ -34,9 +32,9 @@ class User extends Component {
     compra.push(item);
     this.setState({ produtosComprados: compra });
   }
-  mudarIndice(item){
+  mudarIndice(item) {
     selectProduto(item.id).then(response => {
-      this.setState({ produtoSelecionado: response.data});
+      this.setState({ produtoSelecionado: response.data });
     });
   }
   render() {
@@ -56,19 +54,26 @@ class User extends Component {
               />
             )}
           />
-          <Route 
+          <Route
             path="/Compras"
             render={props => (
-              <Compras {...props} produtos={this.state.minhaLista} mudarIndice ={item => this.mudarIndice(item)} />
+              <Compras
+                {...props}
+                produtos={this.state.minhaLista}
+                mudarIndice={item => this.mudarIndice(item)}
+              />
             )}
           />
-          <Route path="/produto" render={props => (
-              <Produto {...props} produto = {this.state.produtoSelecionado} />
-            )}/>
+          <Route
+            path="/produto"
+            render={props => (
+              <Produto {...props} produto={this.state.produtoSelecionado} />
+            )}
+          />
           <Redirect from="*" to="/" />
           {/* <Route path="/cadastro" component={Cadastro} /> */}
         </Switch>
-        <Footer/>
+        <Footer />
       </div>
     );
   }

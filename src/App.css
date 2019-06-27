@@ -31,31 +31,31 @@
     transform: rotate(360deg);
   }
 }
-#sticky-footer{
+#sticky-footer {
   bottom: 0px;
   position: relative;
   width: 100%;
   flex-shrink: none;
 }
-#tabela{
+#tabela {
   height: 500px;
 }
-#btnProduto{
+#btnProduto {
   color: #282c34;
 }
-#btnProduto:hover{
+#btnProduto:hover {
   text-decoration: none;
   color: #282c34;
 }
-.col-1{
+.col-1 {
   padding: 0 7%;
 }
-.col-6{
+.col-6 {
   padding: 0px;
 }
-.row img{
+.row img {
   height: 300px;
 }
-.list-group{
-  border-bottom:1px solid rgba(0, 0, 0, 0.125);
+.list-group {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
 }
