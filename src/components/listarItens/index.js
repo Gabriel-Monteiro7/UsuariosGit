@@ -9,22 +9,29 @@ class ListarItens extends Component {
   }
   render() {
     return (
-      <div className="container" id="tabela">
+      <div className="container-fluid" id="tabela">
         <br />
-        <h1 style={{ float: "left", paddingBottom: "10px" }}>Minhas Compras</h1>
-
-        <Table responsive className="table table-hover">
-          <tbody>
-            {this.props.produtos.map((item, key) => (
-              <Link to="/produto" id="btnProduto" key={key} >
-                <tr onClick={() => this.props.mudarIndice(item)} key={key} >
-                  <td>{item.id}</td>
-                  <td>{item.produto.descricao}</td>
-                  <td>{item.dataCompra}</td>
-                </tr>
-              </Link>
-            ))}
-          </tbody>
+        <h4 style={{ float: "left", paddingBottom: "10px" }}>Minhas Compras</h4>
+        <Table responsive>
+          {this.props.produtos.map((item, key) => (
+            <Link
+              to="/produto"
+              id="btnProduto"
+              key={key}
+              className="list-group-item list-group-item-action"
+            >
+              <div
+                className="row"
+                onClick={() => this.props.mudarIndice(item)}
+                key={key}
+                style={{padding: "10px 0 ",width:"100%" }}
+              >
+                <div className="col-2"><b>{item.produto.nome}</b></div>
+                <div className="col-7">{item.produto.descricao}</div>
+                <div className="col-1"><b>{item.dataCompra}</b></div>
+              </div>
+            </Link>
+          ))}
         </Table>
       </div>
     );

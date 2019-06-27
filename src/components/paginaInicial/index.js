@@ -11,14 +11,14 @@ class PaginaInicial extends Component {
     return (
       <div className="container">
         <br/>
-        <CardColumns>
+        <CardColumns >
         {this.props.produtos.map((item, key) => (
           <Card style={{ width: "100%", height:"250px"}} key ={key} >
-            <Card.Img variant="top" src={item.imagem}  style={{ width: "40%", height:"50%"}}/>
+            <Card.Img variant="top" src={item.imagem}  style={{ width: "45%", height:"40%",margin:"0 auto"}}/>
             <Card.Body>
-              <Card.Title style={{float:"left"}}>{item.nome}</Card.Title>
-              <Card.Title style={{float:"right",marginTop:"10%"}}>R$ {item.valor}</Card.Title>
-              <Button variant="primary" style={{position: "absolute",padding:"1% 20%",bottom:"0px",right:"20%"}} onClick={() => this.props.comprar(item)}>Comprar</Button>
+              <b style={{width: "80%",float:"left",textAlign:"left"}}>{item.nome}</b>
+              <b style={{width: "50%",float:"right",marginTop:"2%",textAlign:"right"}}>R$ {item.valor}</b>
+              <Button variant="primary" style={{position: "absolute",padding:"1% 20%",bottom:"0px",right:"20%",marginBottom:"4%"}} onClick={() => this.props.comprar(item)}>Comprar</Button>
             </Card.Body>
           </Card>
         ))}

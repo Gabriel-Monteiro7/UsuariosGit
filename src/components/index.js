@@ -31,7 +31,6 @@ class User extends Component {
     });
     selectProduto(1).then(response => {
       this.setState({ produtoSelecionado: response.data});
-
     });
   }
   comprar(item) {
