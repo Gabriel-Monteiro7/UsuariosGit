@@ -31,3 +31,20 @@
     transform: rotate(360deg);
   }
 }
+#sticky-footer{
+  bottom: 0px;
+  position: relative;
+  width: 100%;
+  flex-shrink: none;
+}
+
+#tabela{
+  height: 500px;
+}
+#btnProduto{
+  color: #282c34;
+}
+#btnProduto:hover{
+  text-decoration: none;
+  color: #282c34;
+}
