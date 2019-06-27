@@ -60,7 +60,7 @@ class Produto extends Component {
             </div>
           </div>
         
-        ) : <div></div>}
+        ) : <div style={{margin:"20% 0 0 0 "}}><h5>Nenhum produto selecionado</h5></div>}
 
       </div>
     );

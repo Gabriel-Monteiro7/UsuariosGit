@@ -19,7 +19,6 @@ const initValue = {
 };
 class User extends Component {
   state = { ...initValue };
-
   componentWillMount() {
     selectTodosProdutos().then(response => {
       this.setState({ todosProdutos: response.data });
@@ -28,9 +27,6 @@ class User extends Component {
     selectCompras().then(response => {
       this.setState({ minhaLista: response.data});
 
-    });
-    selectProduto(1).then(response => {
-      this.setState({ produtoSelecionado: response.data});
     });
   }
   comprar(item) {
