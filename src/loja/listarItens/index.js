@@ -15,6 +15,7 @@ class ListarItens extends Component {
         <Table responsive>
           {this.props.produtos.map((item, key) => (
             <Link
+              onClick={() => this.props.mudarIndice(item)}
               to="/produto"
               id="btnProduto"
               key={key}
@@ -22,7 +23,6 @@ class ListarItens extends Component {
             >
               <div
                 className="row"
-                onClick={() => this.props.mudarIndice(item)}
                 key={key}
                 style={{ padding: "10px 0 ", width: "100%" }}
               >

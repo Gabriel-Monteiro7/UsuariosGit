@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Button, Card, CardColumns } from "react-bootstrap";
 
-class PaginaInicial extends Component {
+class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -53,4 +53,4 @@ class PaginaInicial extends Component {
     );
   }
 }
-export default PaginaInicial;
+export default Home;

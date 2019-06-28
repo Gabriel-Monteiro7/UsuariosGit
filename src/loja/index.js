@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
 import "../App.css";
-import Footer from "./footer";
-import Compras from "./listarItens/index";
-import NavBar from "./navbar";
-import PaginaInicial from "./paginaInicial/index";
+import Footer from "../presentationals/footer";
+import NavBar from "../presentationals/navbar";
+import {
+  selectCompras,
+  selectProduto,
+  selectTodosProdutos
+} from "../utils/request";
+import Home from "./home/index";
+import CompraFeita from "./listarItens/index";
 import Produto from "./produto/index";
-import { selectCompras, selectProduto, selectTodosProdutos } from "./request";
-
-
-
 
 const initValue = {
   produtosComprados: [],
@@ -17,7 +18,7 @@ const initValue = {
   minhaLista: [],
   produtoSelecionado: []
 };
-class User extends Component {
+class Loja extends Component {
   state = { ...initValue };
   componentWillMount() {
     selectTodosProdutos().then(response => {
@@ -46,7 +47,7 @@ class User extends Component {
             path="/"
             exact
             render={props => (
-              <PaginaInicial
+              <Home
                 {...props}
                 produtos={this.state.todosProdutos}
                 comprar={item => this.comprar(item)}
@@ -57,7 +58,7 @@ class User extends Component {
           <Route
             path="/Compras"
             render={props => (
-              <Compras
+              <CompraFeita
                 {...props}
                 produtos={this.state.minhaLista}
                 mudarIndice={item => this.mudarIndice(item)}
@@ -78,4 +79,4 @@ class User extends Component {
     );
   }
 }
-export default User;
+export default Loja;

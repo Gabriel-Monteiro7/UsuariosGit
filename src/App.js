@@ -1,11 +1,11 @@
 import React from "react";
 import "./App.css";
-import User from "./components/index";
+import Loja from "./loja/index"
 
 function App() {
   return (
     <div className="App">
-      <User />
+      <Loja />
     </div>
   );
 }
