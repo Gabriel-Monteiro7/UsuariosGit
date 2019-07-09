@@ -24,14 +24,14 @@ class ListarItens extends Component {
               <div
                 className="row"
                 key={key}
-                style={{ padding: "10px 0 ", width: "100%" }}
+                style={{ padding: "5px 0 ", width: "100%" }}
               >
-                <div className="col-2">
-                  <b>{item.produto.nome}</b>
+                <div className="col-2" >
+                  <b style={{ padding: "0px 100% 0px 0" }}>{item.produto.nome}</b>
                 </div>
                 <div className="col-7">{item.produto.descricao}</div>
-                <div className="col-1">
-                  <b>{item.dataCompra}</b>
+                <div className="col-2">
+                  <b style={{ padding: "0px 0 0px 100%" }}>{item.dataCompra}</b>
                 </div>
               </div>
             </Link>

@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -40,13 +41,6 @@
 #tabela {
   height: 500px;
 }
-#btnProduto {
-  color: #282c34;
-}
-#btnProduto:hover {
-  text-decoration: none;
-  color: #282c34;
-}
 .col-1 {
   padding: 0 7%;
 }
@@ -58,4 +52,40 @@
 }
 .list-group {
   border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+.card-columns {
+  
+  column-count: 4;
+  margin-top: 20px;
+}
+.infor img{
+  height: 200px;
+  width: 100%;
+  border: none;
+}
+.infor p{
+  font-size: 90%;
+  
+}
+.infor button{
+  width: 100%;
+  border: none;
+  color: #FFF;
+  margin-top: 52px;
+  background: #f89a3d;
+  border-radius: 0px;
+  
+}
+
+.infor{
+  border: none;
+
+}
+.infor:hover{
+  opacity: 0.95;
+
+}
+.infor button:hover{
+  color: #FFF;
+  background: #ff8000;
 }

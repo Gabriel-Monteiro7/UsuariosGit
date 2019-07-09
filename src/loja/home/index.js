@@ -1,54 +1,49 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
-import { Button, Card, CardColumns } from "react-bootstrap";
+
+import "../../App.css";
 
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { visivel: true, indice: null };
+  }
+  change(value, indice) {
+    this.setState({ visivel: value, indice });
   }
   render() {
     return (
-      <div className="container">
-        <br />
-        <CardColumns>
-          {this.props.produtos.map((item, key) => (
-            <Card style={{ width: "100%", height: "250px" }} key={key}>
-              <Card.Img
-                variant="top"
-                src={item.imagem}
-                style={{ width: "45%", height: "40%", margin: "0 auto" }}
-              />
-              <Card.Body>
-                <b style={{ width: "80%", float: "left", textAlign: "left" }}>
-                  {item.nome}
-                </b>
-                <b
-                  style={{
-                    width: "50%",
-                    float: "right",
-                    marginTop: "2%",
-                    textAlign: "right"
-                  }}
-                >
-                  R$ {item.valor}
-                </b>
-                <Button
-                  variant="primary"
-                  style={{
-                    position: "absolute",
-                    padding: "1% 20%",
-                    bottom: "0px",
-                    right: "20%",
-                    marginBottom: "4%"
-                  }}
-                  onClick={() => this.props.comprar(item)}
-                >
-                  Comprar
-                </Button>
-              </Card.Body>
-            </Card>
-          ))}
-        </CardColumns>
+      <div className="container ">
+        <h4 style={{ padding: "10px 100% 10px 0" }}>Produtos</h4>
+        {this.props.produtos.length < 3 ? (
+          <div style={{ margin: "40% 0 0 0 " }} />
+        ) : (
+          <div className="card-columns">
+            {this.props.produtos.map((item, key) => (
+              <div
+                className="card infor"
+                onMouseOver={() => this.change(false, key)}
+                onMouseLeave={() => this.change(true, null)}
+                key={key}
+                style={{ width: "80%" }}
+              >
+                <img src={item.imagem} className="img-thumbnail " />
+                <div style={{ height: "80px" }}>
+                  {key === this.state.indice && !this.state.visivel ? (
+                    <button type="button" className="btn btn-warning btn-sm">
+                      Comprar
+                    </button>
+                  ) : (
+                    <div>
+                      <p className="">{item.nome}</p>
+                      <p className="">R$ {item.valor}</p>{" "}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     );
   }

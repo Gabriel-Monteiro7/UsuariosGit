@@ -14,7 +14,7 @@ import Produto from "./produto/index";
 
 const initValue = {
   produtosComprados: [],
-  todosProdutos: [{}],
+  todosProdutos: [],
   minhaLista: [],
   produtoSelecionado: []
 };
@@ -27,6 +27,9 @@ class Loja extends Component {
     selectCompras().then(response => {
       this.setState({ minhaLista: response.data });
     });
+    if(this.state.todosProdutos.length<3){
+
+    }
   }
   comprar(item) {
     let compra = this.state.produtosComprados;
@@ -40,41 +43,48 @@ class Loja extends Component {
   }
   render() {
     return (
-      <div>
-        <NavBar />
-        <Switch>
-          <Route
-            path="/"
-            exact
-            render={props => (
-              <Home
-                {...props}
-                produtos={this.state.todosProdutos}
-                comprar={item => this.comprar(item)}
-                prodoutosComprados={this.state.produtosComprados}
-              />
-            )}
-          />
-          <Route
-            path="/Compras"
-            render={props => (
-              <CompraFeita
-                {...props}
-                produtos={this.state.minhaLista}
-                mudarIndice={item => this.mudarIndice(item)}
-              />
-            )}
-          />
-          <Route
-            path="/produto"
-            render={props => (
-              <Produto {...props} produto={this.state.produtoSelecionado} />
-            )}
-          />
-          <Redirect from="*" to="/" />
-          {/* <Route path="/cadastro" component={Cadastro} /> */}
-        </Switch>
-        <Footer />
+      <div className="">
+        <div className="">
+          <NavBar />
+        </div>
+        <div className="container-fluid">
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={props => (
+                <Home
+                  {...props}
+                  produtos={this.state.todosProdutos}
+                  comprar={item => this.comprar(item)}
+                  prodoutosComprados={this.state.produtosComprados}
+                />
+              )}
+            />
+            <Route
+              path="/Compras"
+              render={props => (
+                <CompraFeita
+                  {...props}
+                  produtos={this.state.minhaLista}
+                  mudarIndice={item => this.mudarIndice(item)}
+                />
+              )}
+            />
+            <Route
+              path="/produto"
+              render={props => (
+                <Produto {...props} produto={this.state.produtoSelecionado} />
+              )}
+            />
+            <Redirect from="*" to="/" />
+            {/* <Route path="/cadastro" component={Cadastro} /> */}
+          </Switch>
+        </div>
+
+        <div className="app-footer">
+          <Footer />
+        </div>
       </div>
     );
   }
