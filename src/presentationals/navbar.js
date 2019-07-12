@@ -8,8 +8,8 @@ const NavBar = (props) => {
     <div className="">
       <Navbar bg="light" variant="light">
         <Nav className="mr-auto">
-            <Link to="/" className="nav-link">Loja</Link>
-            <Link to="/compras" className="nav-link">Minhas Compras</Link>
+            <Link to="/" className="nav-link">Home</Link>
+            <Link to="/compras" className="nav-link">Favoritos</Link>
         </Nav>
       </Navbar>
       
