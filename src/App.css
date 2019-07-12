@@ -72,7 +72,7 @@
   border-radius: 0px 0 0px 10px;
   text-align: center;
 }
-.card-img-overlay span{
+.card-img-overlay span {
   padding: 0 6px;
   width: 50%;
   height: 100%;
@@ -81,15 +81,15 @@
   opacity: 0.4;
   cursor: pointer;
 }
-#plus{
+#plus {
   opacity: 0.4;
   cursor: pointer;
   padding: 0 7px;
 }
-#plus:hover{
+#plus:hover {
   opacity: 0.7;
 }
-.card-img-overlay span:hover{
+.card-img-overlay span:hover {
   border: 1px solid rgba(0, 0, 0, 0.125);
   opacity: 0.7;
 }
@@ -115,15 +115,15 @@
   font-weight: 300;
   opacity: 0.2;
 }
-.fab{
+.fab {
   padding: 15px;
 }
 
-.fab:hover{
+.fab:hover {
   color: aliceblue;
   cursor: pointer;
 }
-a{
+a {
   color: rgba(255, 255, 255, 0.5);
   text-decoration: none;
 }

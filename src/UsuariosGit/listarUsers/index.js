@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+
 class ListarUsers extends Component {
   constructor(props) {
     super(props);
@@ -48,8 +49,10 @@ class ListarUsers extends Component {
                         <p>{item.login}</p>
                       </div>
                       <div className="col-7" id="inf">
-                        <Link  style ={{color:"#212529"}}><i className="fas fa-plus-circle fa-lg" id="plus"/></Link>
-                        
+                        <Link style={{ color: "#212529" }}>
+                          <i className="fas fa-plus-circle fa-lg" id="plus" />
+                        </Link>
+
                         <span
                           style={{ color: "white", background: "#ea4c89" }}
                           onClick={() => this.props.remove(item)}

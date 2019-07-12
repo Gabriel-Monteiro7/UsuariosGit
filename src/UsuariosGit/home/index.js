@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from "react";
-
 import "../../App.css";
+
 
 class Home extends Component {
   constructor(props) {
@@ -12,11 +12,11 @@ class Home extends Component {
   change(value, indice) {
     this.setState({ visivel: value, indice });
   }
-  isFavorito(item){
+  isFavorito(item) {
     if (this.props.users.includes(item)) {
-      return true
+      return true;
     }
-    return false
+    return false;
   }
   render() {
     return (
@@ -35,17 +35,56 @@ class Home extends Component {
                 style={{ width: "80%" }}
               >
                 <img src={item.avatar_url} className="card-img" />
-                <p className ="card-img-overlay"id ="id">{item.id}</p>
-                <div className ="card-img-overlay" style ={{padding:"100% 0 0 0"}}>
+                <p className="card-img-overlay" id="id">
+                  {item.id}
+                </p>
+                <div
+                  className="card-img-overlay"
+                  style={{ padding: "100% 0 0 0" }}
+                >
                   {key === this.state.indice && !this.state.visivel ? (
-                    <div style ={{background:"white",width:"100%",height:"100%",margin:"0px"}} className="row">
-                    <div className="col-5"id="inf"><p>{item.login}</p></div>
-                  <div className="col-7"id="inf"><span ><a href={item.html_url} target="_blank" style ={{width:"100%",textDecoration:"none",color:"#212529"}}>Visit</a></span>{
-                    this.isFavorito(item)?<span style ={{color:"white",background:"#ea4c89"}} onClick = {() => this.props.remove(item)}><i className="fas fa-heart fa-xs" ></i> Liked</span>:<span onClick = {() => this.props.add(item)}><i className="fas fa-heart fa-xs" ></i> Like</span>}</div>
-                  </div>
+                    <div
+                      style={{
+                        background: "white",
+                        width: "100%",
+                        height: "100%",
+                        margin: "0px"
+                      }}
+                      className="row"
+                    >
+                      <div className="col-5" id="inf">
+                        <p>{item.login}</p>
+                      </div>
+                      <div className="col-7" id="inf">
+                        <span>
+                          <a
+                            href={item.html_url}
+                            target="_blank"
+                            style={{
+                              width: "100%",
+                              textDecoration: "none",
+                              color: "#212529"
+                            }}
+                          >
+                            Visit
+                          </a>
+                        </span>
+                        {this.isFavorito(item) ? (
+                          <span
+                            style={{ color: "white", background: "#ea4c89" }}
+                            onClick={() => this.props.remove(item)}
+                          >
+                            <i className="fas fa-heart fa-xs" /> Liked
+                          </span>
+                        ) : (
+                          <span onClick={() => this.props.add(item)}>
+                            <i className="fas fa-heart fa-xs" /> Like
+                          </span>
+                        )}
+                      </div>
+                    </div>
                   ) : (
-                    <div >
-                  </div>
+                    <div />
                   )}
                 </div>
               </div>

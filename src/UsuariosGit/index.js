@@ -4,16 +4,14 @@ import { Redirect, Route, Switch } from "react-router-dom";
 import "../App.css";
 import Footer from "../presentationals/footer";
 import NavBar from "../presentationals/navbar";
-import {
-  selectAllUsers
-} from "../utils/request";
+import { selectAllUsers } from "../utils/request";
 import Home from "./home/index";
-import CompraFeita from "./listarUsers/index";
+import ListarUsers from "./listarUsers/index";
 
 const initValue = {
   users: [],
   allUsers: [],
-  user: [],
+  user: []
 };
 class Loja extends Component {
   state = { ...initValue };
@@ -29,18 +27,18 @@ class Loja extends Component {
     if (!this.state.users.includes(item)) {
       let users = this.state.users;
       users.push(item);
-      this.setState({users });
+      this.setState({ users });
     }
     console.log(this.state.produtosComprados);
   }
   remove(item) {
-    console.log("Cu")
+    console.log("Cu");
     if (confirm("Você deseja mesmo excluir o usuario?")) {
-      console.log("OI")
-      let users = this.state.users
-      users = users.filter(user => user.id !== item.id)
-      this.setState({users });
-      console.log(this.state.users)
+      console.log("OI");
+      let users = this.state.users;
+      users = users.filter(user => user.id !== item.id);
+      this.setState({ users });
+      console.log(this.state.users);
     }
   }
   // mudarIndice(item) {
@@ -72,7 +70,7 @@ class Loja extends Component {
             <Route
               path="/Compras"
               render={props => (
-                <CompraFeita
+                <ListarUsers
                   users={this.state.users}
                   mudarIndice={item => this.mudarIndice(item)}
                   remove={item => this.remove(item)}
