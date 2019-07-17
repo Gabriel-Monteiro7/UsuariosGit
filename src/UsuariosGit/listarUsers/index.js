@@ -14,9 +14,9 @@ class ListarUsers extends Component {
     console.log(this.props.users);
     return (
       <div className="container ">
-        <h4 style={{ padding: "10px 80% 10px 0" }}>Usuarios Salvos</h4>
+        <h4 style={{ padding: "10px 84% 10px 0" }}>Usuarios Salvos</h4>
         {this.props.users.length < 1 ? (
-          <div style={{ margin: "40% 0 0 0 " }} />
+          <div style={{ margin: "0 0 60% 0" }} />
         ) : (
           <div className="card-columns">
             {this.props.users.map((item, key) => (
@@ -25,7 +25,6 @@ class ListarUsers extends Component {
                 onMouseOver={() => this.change(false, key)}
                 onMouseLeave={() => this.change(true, null)}
                 key={key}
-                style={{ width: "80%" }}
               >
                 <img src={item.avatar_url} className="card-img" />
                 <p className="card-img-overlay" id="id">
@@ -40,15 +39,26 @@ class ListarUsers extends Component {
                       style={{
                         background: "white",
                         width: "100%",
-                        height: "100%",
-                        margin: "0px"
+                        height: "100%"
                       }}
-                      className="row"
+                      className=""
                     >
-                      <div className="col-5" id="inf">
+                      <div
+                        id="inf"
+                        style={{
+                          float: "left"
+                        }}
+                      >
                         <p>{item.login}</p>
                       </div>
-                      <div className="col-7" id="inf">
+                      <div
+                        id="inf"
+                        style={{
+                          float: "right",
+                          top: "30%",
+                          position: "relative"
+                        }}
+                      >
                         <Link style={{ color: "#212529" }}>
                           <i className="fas fa-plus-circle fa-lg" id="plus" />
                         </Link>

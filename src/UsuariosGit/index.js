@@ -11,7 +11,8 @@ import ListarUsers from "./listarUsers/index";
 const initValue = {
   users: [],
   allUsers: [],
-  user: []
+  user: [],
+  btnSubir: "hidden"
 };
 class Loja extends Component {
   state = { ...initValue };
@@ -40,6 +41,13 @@ class Loja extends Component {
       this.setState({ users });
       console.log(this.state.users);
     }
+  }
+  handleScroll() {
+    if (pageYOffset > 0) this.setState({ btnTopo: "visible" });
+    else this.setState({ btnTopo: "hidden" });
+  }
+  componentDidMount() {
+    window.onscroll = () => this.handleScroll();
   }
   // mudarIndice(item) {
   //   selectUser(item.id).then(response => {
@@ -80,6 +88,15 @@ class Loja extends Component {
             <Redirect from="*" to="/" />
             {/* <Route path="/cadastro" component={Cadastro} /> */}
           </Switch>
+          <span
+            style={{ visibility: this.state.btnTopo }}
+            className=" btnSubir fixed-bottom"
+            onClick={() => window.scroll(0, 0)}
+          >
+            <div>
+              <i className="fas fa-angle-double-up fa-2x" />
+            </div>
+          </span>
         </div>
 
         <div className="app-footer">
