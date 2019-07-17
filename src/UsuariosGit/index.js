@@ -14,15 +14,12 @@ const initValue = {
   user: [],
   btnSubir: "hidden"
 };
-class Loja extends Component {
+class UsuariosGit extends Component {
   state = { ...initValue };
   componentWillMount() {
     selectAllUsers().then(response => {
-      console.log(response.data);
       this.setState({ allUsers: response.data });
     });
-    if (this.state.allUsers.length < 3) {
-    }
   }
   add(item) {
     if (!this.state.users.includes(item)) {
@@ -33,9 +30,7 @@ class Loja extends Component {
     console.log(this.state.produtosComprados);
   }
   remove(item) {
-    console.log("Cu");
     if (confirm("Você deseja mesmo excluir o usuario?")) {
-      console.log("OI");
       let users = this.state.users;
       users = users.filter(user => user.id !== item.id);
       this.setState({ users });
@@ -49,11 +44,6 @@ class Loja extends Component {
   componentDidMount() {
     window.onscroll = () => this.handleScroll();
   }
-  // mudarIndice(item) {
-  //   selectUser(item.id).then(response => {
-  //     this.setState({ user: response.data });
-  //   });
-  // }
   render() {
     return (
       <div className="">
@@ -86,7 +76,6 @@ class Loja extends Component {
               )}
             />
             <Redirect from="*" to="/" />
-            {/* <Route path="/cadastro" component={Cadastro} /> */}
           </Switch>
           <span
             style={{ visibility: this.state.btnTopo }}
@@ -106,4 +95,4 @@ class Loja extends Component {
     );
   }
 }
-export default Loja;
+export default UsuariosGit;

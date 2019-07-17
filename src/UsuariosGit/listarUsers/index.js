@@ -11,7 +11,6 @@ class ListarUsers extends Component {
     this.setState({ visivel: value, indice });
   }
   render() {
-    console.log(this.props.users);
     return (
       <div className="container ">
         <h4 style={{ padding: "10px 84% 10px 0" }}>Usuarios Salvos</h4>
