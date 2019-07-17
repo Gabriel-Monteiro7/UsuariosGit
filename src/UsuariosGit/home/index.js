@@ -22,7 +22,7 @@ class Home extends Component {
     return (
       <div>
         <div className="container ">
-          <h4 style={{ padding: "10px 84% 10px 0" }}>Usuarios Git</h4>
+          <h4 style={{ padding: "10px 88% 10px 0" }}>Usuarios Git </h4>
           {this.props.allUsers.length < 1 ? (
             <div />
           ) : (
