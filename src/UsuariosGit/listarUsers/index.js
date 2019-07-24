@@ -17,62 +17,64 @@ class ListarUsers extends Component {
         {this.props.users.length < 1 ? (
           <div style={{ margin: "0 0 60% 0" }} />
         ) : (
-          <div className="card-columns">
+          <div class="row">
             {this.props.users.map((item, key) => (
-              <div
-                className="card cardPersonalizado"
-                onMouseOver={() => this.change(false, key)}
-                onMouseLeave={() => this.change(true, null)}
-                key={key}
-              >
-                <img src={item.avatar_url} className="card-img" />
-                <p className="card-img-overlay" id="id">
-                  {item.id}
-                </p>
+              <div class="col-lg-3 col-md-6 my-2">
                 <div
-                  className="card-img-overlay"
-                  style={{ padding: "100% 0 0 0" }}
+                  className="card cardPersonalizado"
+                  onMouseOver={() => this.change(false, key)}
+                  onMouseLeave={() => this.change(true, null)}
+                  key={key}
                 >
-                  {key === this.state.indice && !this.state.visivel ? (
-                    <div
-                      style={{
-                        background: "white",
-                        width: "100%",
-                        height: "100%"
-                      }}
-                      className=""
-                    >
+                  <img src={item.avatar_url} className="card-img" />
+                  <p className="card-img-overlay offset-md-11 offset-sm-11" id="id">
+                    {item.id}
+                  </p>
+                  <div
+                    className="card-img-overlay"
+                    style={{ padding: "0",top:"82%" }}
+                  >
+                    {key === this.state.indice && !this.state.visivel ? (
                       <div
-                        id="inf"
                         style={{
-                          float: "left"
+                          background: "white",
+                          width: "100%",
+                          height: "100%"
                         }}
+                        className=""
                       >
-                        <p>{item.login}</p>
-                      </div>
-                      <div
-                        id="inf"
-                        style={{
-                          float: "right",
-                          top: "30%",
-                          position: "relative"
-                        }}
-                      >
-                        <Link style={{ color: "#212529" }}>
-                          <i className="fas fa-plus-circle fa-lg" id="plus" />
-                        </Link>
-
-                        <span
-                          style={{ color: "white", background: "#ea4c89" }}
-                          onClick={() => this.props.remove(item)}
+                        <div
+                          id="inf"
+                          style={{
+                            float: "left"
+                          }}
                         >
-                          <i className="fas fa-heart fa-xs" /> Liked
-                        </span>
+                          <p>{item.login}</p>
+                        </div>
+                        <div
+                          id="inf"
+                          style={{
+                            float: "right",
+                            position: "relative",
+                            top:"30%"
+                          }}
+                        >
+                          <Link style={{ color: "#212529" }}>
+                            <i className="fas fa-plus-circle fa-lg" id="plus" />
+                          </Link>
+
+                          <span
+                            style={{ color: "white", background: "#ea4c89" }}
+                            onClick={() => this.props.remove(item)}
+                          >
+                            <i className="fas fa-heart fa-xs" /> Liked
+                          </span>
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <div />
-                  )}
+                    ) : (
+                      <div />
+                    )}
+                  </div>
                 </div>
               </div>
             ))}

@@ -26,84 +26,86 @@ class Home extends Component {
           {this.props.allUsers.length < 1 ? (
             <div />
           ) : (
-            <div className="card-columns">
+            <div class="row">
               {this.props.allUsers.map((item, key) => (
-                <div
-                  className="card cardPersonalizado"
-                  onMouseOver={() => this.change(false, key)}
-                  onMouseLeave={() => this.change(true, null)}
-                  key={key}
-                >
-                  <img src={item.avatar_url} className="card-img" />
-                  <p className="card-img-overlay" id="id">
-                    {item.id}
-                  </p>
+                <div class="col-lg-3 col-md-6 my-2">
                   <div
-                    className="card-img-overlay"
-                    style={{ padding: "100% 0 0 0" }}
+                    className="card cardPersonalizado"
+                    onMouseOver={() => this.change(false, key)}
+                    onMouseLeave={() => this.change(true, null)}
+                    key={key}
                   >
-                    {key === this.state.indice && !this.state.visivel ? (
-                      <div
-                        style={{
-                          background: "white",
-                          width: "100%",
-                          height: "100%"
-                        }}
-                        className=""
-                      >
+                    <img src={item.avatar_url} className="card-img" />
+                    <p className="card-img-overlay offset-md-11 offset-sm-11" id="id">
+                      {item.id}
+                    </p>
+                    <div
+                      className="card-img-overlay"
+                      style={{ padding: "0", top: "82%" }}
+                    >
+                      {key === this.state.indice && !this.state.visivel ? (
                         <div
-                          id="inf"
                           style={{
-                            float: "left"
+                            background: "white",
+                            width: "100%",
+                            height: "100%"
                           }}
+                          className=""
                         >
-                          <p>{item.login}</p>
-                        </div>
-                        <div
-                          id="inf"
-                          style={{
-                            float: "right",
-                            top: "30%",
-                            position: "relative"
-                          }}
-                        >
-                          <span
+                          <div
+                            id="inf"
                             style={{
                               float: "left"
                             }}
                           >
-                            <a
-                              href={item.html_url}
-                              target="_blank"
-                              style={{
-                                textDecoration: "none",
-                                color: "#212529"
-                              }}
-                            >
-                              Visit
-                            </a>
-                          </span>
-                          {this.isFavorito(item) ? (
+                            <p>{item.login}</p>
+                          </div>
+                          <div
+                            id="inf"
+                            style={{
+                              float: "right",
+                              position: "relative",
+                              top:"20%"
+                            }}
+                          >
                             <span
                               style={{
-                                color: "white",
-                                background: "#ea4c89",
-                                float: "right"
+                                float: "left"
                               }}
-                              onClick={() => this.props.remove(item)}
                             >
-                              <i className="fas fa-heart fa-xs" /> Liked
+                              <a
+                                href={item.html_url}
+                                target="_blank"
+                                style={{
+                                  textDecoration: "none",
+                                  color: "#212529"
+                                }}
+                              >
+                                Visit
+                              </a>
                             </span>
-                          ) : (
-                            <span onClick={() => this.props.add(item)}>
-                              <i className="fas fa-heart fa-xs" /> Like
-                            </span>
-                          )}
+                            {this.isFavorito(item) ? (
+                              <span
+                                style={{
+                                  color: "white",
+                                  background: "#ea4c89",
+                                  float: "right"
+                                }}
+                                onClick={() => this.props.remove(item)}
+                              >
+                                <i className="fas fa-heart fa-xs" /> Liked
+                              </span>
+                            ) : (
+                              <span onClick={() => this.props.add(item)}>
+                                <i className="fas fa-heart fa-xs" /> Like
+                              </span>
+                            )}
+                          </div>
                         </div>
-                      </div>
-                    ) : (
-                      <div />
-                    )}
+                      ) : (
+                        <div />
+                      )}
+                    </div>
                   </div>
                 </div>
               ))}
