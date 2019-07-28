@@ -27,38 +27,23 @@ class ListarUsers extends Component {
                   key={key}
                 >
                   <img src={item.avatar_url} className="card-img" />
-                  <p className="card-img-overlay offset-md-11 offset-sm-11" id="id">
+                  <p
+                    className="card-img-overlay offset-md-11 offset-sm-11"
+                    id="id"
+                  >
                     {item.id}
                   </p>
-                  <div
-                    className="card-img-overlay"
-                    style={{ padding: "0",top:"82%" }}
-                  >
+                  <div className="card-img-overlay informacao">
                     {key === this.state.indice && !this.state.visivel ? (
-                      <div
-                        style={{
-                          background: "white",
-                          width: "100%",
-                          height: "100%"
-                        }}
-                        className=""
-                      >
+                      <div className="informacoes">
                         <div
-                          id="inf"
                           style={{
                             float: "left"
                           }}
                         >
                           <p>{item.login}</p>
                         </div>
-                        <div
-                          id="inf"
-                          style={{
-                            float: "right",
-                            position: "relative",
-                            top:"30%"
-                          }}
-                        >
+                        <div id="inf">
                           <Link style={{ color: "#212529" }}>
                             <i className="fas fa-plus-circle fa-lg" id="plus" />
                           </Link>
